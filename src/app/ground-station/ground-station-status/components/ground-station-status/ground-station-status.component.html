@@ -1,0 +1,23 @@
+<div class="flex flex-wrap justify-between p-4">
+  <div *ngFor="let station of groundStations" 
+       class="station-card w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+      <div class="inner-card bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 ease-in-out"
+           [ngClass]="{
+              'border-l-4 border-green-500': station.status === 'active',
+              'border-l-4 border-red-500': station.status === 'inactive'
+           }">
+          <h2 class="text-xl font-semibold mb-2">{{ station.name }}</h2>
+          <div class="flex items-center">
+              <!-- Optional: Use an icon here -->
+              <span class="status-icon mr-2"></span>
+              <span class="rounded-full px-3 py-1 text-xs font-bold" 
+                    [ngClass]="{
+                       'bg-green-200 text-green-800': station.status === 'active',
+                       'bg-red-200 text-red-800': station.status === 'inactive'
+                    }">
+                  {{ station.status | titlecase }}
+              </span>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="flex flex-col h-screen p-8 primary-bg">
+    <!-- Heading Section -->
+    <header class="text-center text-white mb-8">
+        <h1 class="text-4xl font-bold">Welcome to Command Center</h1>
+        <p class="text-lg">Monitor and manage rocket telemetry data in real-time.</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="flex-grow flex flex-row">
+        <!-- Left Column -->
+        <section class="flex flex-col flex-1 mr-4">
+          <!-- Application Greeting Section -->
+<div class="flex-grow mb-4">
+    <p class="text-lg text-white mb-2">Key Features:</p>
+    <ul class="list-disc list-inside mb-4 text-white">
+        <li>Instantly view real-time telemetry data with graphical visuals.</li>
+        <li>Manage your ground station statuses and controls easily.</li>
+        <li>Access and review telemetry from previous sessions with ease.</li>
+        <li>Quickly detect anomalies and switch to backup systems.</li>
+        <li>Customize your dashboard view to suit your preferences.</li>
+    </ul>
+    <p class="text-lg text-white">Let's dive in and explore these features. Happy monitoring!</p>
+</div>
+
+
+            <!-- Image Section -->
+            <div class="relative h-60">
+                <div class="absolute inset-0 bg-contain bg-no-repeat bg-center"
+                    style="background-image: url('../../../assets/images/command_center_entry_point.svg');"></div>
+            </div>
+        </section>
+
+        <!-- Right Column -->
+        <section class="flex-1 ml-4">
+            <!-- Login Section -->
+            <app-login></app-login>
+  
+        </section>
+    </main>
+</div>

@@ -1,0 +1,92 @@
+<mat-form-field appearance="fill" class="w-1/2">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+</mat-form-field>
+
+
+<div class="mat-elevation-z8 bg-white shadow-lg rounded-lg">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Timestamp Column -->
+    <ng-container matColumnDef="timestamp">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Timestamp </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.timestamp | telemetryHowLongAgo}} </mat-cell>
+    </ng-container>
+
+    <!-- Rocket Name Column -->
+    <ng-container matColumnDef="rocket_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Rocket Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rocket_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Stage Name Column -->
+    <ng-container matColumnDef="stage_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Stage Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.stage_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Engine Name Column -->
+    <ng-container matColumnDef="engine_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Engine Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.engine_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Thrust Column -->
+    <ng-container matColumnDef="thrust">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Thrust </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [ngClass]="{'bg-green-600 text-white px-2 py-1 rounded': element.thrust > 10 }">
+          {{element.thrust}}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- ISP Column -->
+    <ng-container matColumnDef="isp">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ISP </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [ngClass]="{'bg-green-600 text-white px-2 py-1 rounded': element.isp > 10 }">
+          {{element.isp}}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button class="text-gray-300 hover:text-red-500 hover:bg-gray-200 rounded-full p-1" (click)="openActionDialog(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        
+      </mat-cell>
+    </ng-container>
+
+    <!-- Speed Column -->
+    <ng-container matColumnDef="speed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Speed </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.speed}} </mat-cell>
+    </ng-container>
+
+    <!-- Temperature Column -->
+    <ng-container matColumnDef="temperature">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.temperature}} </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+
+
+
+
+  </mat-table>
+  <mat-paginator [length]="dataSource.data.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of data">
+  </mat-paginator>
+
+</div>

@@ -1,0 +1,15 @@
+
+
+<mat-form-field class="w-1/2">
+  <input type="text" placeholder="Search Rocket and Stage here" matInput [formControl]="rocketControl" [matAutocomplete]="auto"
+  
+  >
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+  (optionSelected)="onSelectionChanged($event)"
+  >
+    <mat-option *ngFor="let item of filteredRocketsAndStages | async" [value]="item">
+      {{ item.rocket.name }} > {{ item.stage.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+

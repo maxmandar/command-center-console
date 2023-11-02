@@ -1,0 +1,26 @@
+<h2 class="text-xl font-semibold mb-4">Telemetry Data</h2> 
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+
+      <!-- History Tab -->
+      <mat-tab label="History"> 
+          <app-telemetry-history></app-telemetry-history> 
+      </mat-tab>
+
+      <!-- Live Telemetry Tab -->
+      <mat-tab label="Live">
+          <div class="flex">
+              <!-- Chart section -->
+              <div class="w-1/2 p-4">
+                  <h3 class="text-lg font-medium mb-3">Live Chart</h3>
+                  <app-telemetry-live-chart></app-telemetry-live-chart>
+              </div>
+
+              <!-- Live data section -->
+              <div class="w-1/2 p-4">
+                  <h3 class="text-lg font-medium mb-3">Live Data Feed</h3>
+                  <app-telemetry-live></app-telemetry-live>
+              </div>
+          </div>
+      </mat-tab>
+
+    </mat-tab-group>

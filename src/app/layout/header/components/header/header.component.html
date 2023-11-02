@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <!-- Left Side: Home Page Link -->
+    <a href="/" class="flex items-center hover:text-blue-200 transition duration-300">
+      <span class="text-lg font-semibold">Command Center</span>
+    </a>
+  
+  
+  
+     <!-- Middle: Search Feature -->
+     <div class="flex flex-grow mx-8">
+      <div class="flex items-center bg-white rounded-full text-black w-3/4">
+        <mat-icon color="primary" class="ml-2">search</mat-icon>
+        <input class="w-full rounded-full px-2 py-0.5 text-sm outline-none" type="text" placeholder="Search here..." aria-label="Search">
+      </div>
+    </div>
+  
+    <!-- Spacer -->
+    <span class="flex-grow"></span>
+  
+    <!-- Right Side: User Interactions -->
+    <div class="flex items-center space-x-4 pr-4">
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+        <mat-icon>description</mat-icon>
+      </button>
+      <!-- <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+        <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+      </button> -->
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+    
+    <mat-menu #userMenu="matMenu" xPosition="before">
+      <div class="flex items-center px-4 py-2 bg-blue-800">
+        <span>{{ user?.full_name }}</span>
+      </div>
+      <app-logout></app-logout>
+    </mat-menu>
+  </mat-toolbar>
+  

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Action Confirmation</h2>
+<mat-dialog-content>
+  <p>Do you really want to delete the following telemetry data?</p>
+  <ul>
+    <li>Rocket Name: {{data.telemetry.rocket_name}}</li>
+    <li>Stage Name: {{data.telemetry.stage_name}}</li>
+    <li>Engine Name: {{data.telemetry.engine_name}}</li>
+    <li>Thrust: {{data.telemetry.thrust}}</li>
+    <li>ISP: {{data.telemetry.isp}}</li>
+    <li>Speed: {{data.telemetry.speed}}</li>
+    <!-- Add more fields if needed -->
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true">Proceed</button>
+</mat-dialog-actions>

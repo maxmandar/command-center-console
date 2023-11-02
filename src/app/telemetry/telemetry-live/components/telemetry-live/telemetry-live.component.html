@@ -1,0 +1,55 @@
+
+<!-- This is to show live status and may be able to control it -->
+<!-- <app-telemetry-live-status></app-telemetry-live-status> -->
+<mat-table [dataSource]="dataSource">
+
+    <!-- Rocket Code Column -->
+    <ng-container matColumnDef="rocket_code">
+        <mat-header-cell *matHeaderCellDef> Rocket Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.rocket_code}} </mat-cell>
+    </ng-container>
+
+    <!-- Stage Code Column -->
+    <ng-container matColumnDef="stage_code">
+        <mat-header-cell *matHeaderCellDef> Stage Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.stage_code}} </mat-cell>
+    </ng-container>
+
+    <!-- Speed Column -->
+    <!-- <ng-container matColumnDef="speed">
+<mat-header-cell *matHeaderCellDef> Speed </mat-header-cell>
+<mat-cell *matCellDef="let element"> {{element.speed}} </mat-cell>
+</ng-container> -->
+
+    <ng-container matColumnDef="speed">
+        <mat-header-cell *matHeaderCellDef>Speed </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="flex items-center">
+            <span
+                [ngClass]="element.speed > 800 ? 'bg-green-500 text-white px-2 py-1 rounded' : 'bg-blue-500 text-white px-2 py-1 rounded'">{{element.speed}}</span>
+        </mat-cell>
+    </ng-container>
+
+
+
+    <!-- Altitude Column -->
+    <ng-container matColumnDef="altitude">
+        <mat-header-cell *matHeaderCellDef> Altitude </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.altitude}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="temperature">
+        <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.temperature}} </mat-cell>
+    </ng-container>
+
+    <!-- Time Column -->
+    <ng-container matColumnDef="timestamp">
+        <mat-header-cell *matHeaderCellDef> Timestamp </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.timestamp}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
